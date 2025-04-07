@@ -361,6 +361,6 @@ mod tests {
 
         let mut factory = TempTableFactory::new().await;
         let _table = factory.create_table(builder).await.unwrap();
-        // factory.delete_tables().await.unwrap();
+        factory.delete_tables().await.unwrap();
     }
 }
