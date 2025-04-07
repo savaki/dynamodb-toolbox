@@ -20,7 +20,7 @@ pub struct Builder<N, K> {
 }
 
 #[derive(Clone, Debug, Default)]
-struct NoKeys;
+pub struct NoKeys;
 
 #[non_exhaustive]
 #[derive(Clone, Debug)]
@@ -28,9 +28,6 @@ pub struct Keys {
     hash_key: AttributeDefinitionBuilder,
     range_key: Option<AttributeDefinitionBuilder>,
 }
-
-#[allow(dead_code)]
-struct NoPK;
 
 impl Keys {
     pub fn hash_b(name: impl Into<String>) -> Keys {
