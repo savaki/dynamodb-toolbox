@@ -1,0 +1,17 @@
+[package]
+name = "dynamodb-toolbox"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+aws-config = { version = "1.6" }
+aws-sdk-dynamodb = { version = "1.71" }
+aws-smithy-types = { version = "1.3.0" }
+aws-smithy-runtime-api = { version = "1.7.3" }
+futures = { version = "0.3" }
+tokio = { version = "1.44", features = ["full"] }
+tracing = { version = "0.1" }
+uuid = { version = "1.16.0", features = ["v4", "v8"] }
+
+[dev-dependencies]
+tracing-subscriber = { version = "0.3", features = ["tracing"] }
