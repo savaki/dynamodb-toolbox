@@ -1,5 +1,5 @@
 use crate::builder;
-use crate::builder::{ Keys, NoName};
+use crate::builder::{Keys, NoName};
 use aws_config::meta::region::RegionProviderChain;
 use aws_sdk_dynamodb::config::Credentials;
 use aws_sdk_dynamodb::{Client, Config};
@@ -84,6 +84,10 @@ impl TempTableFactory {
         }
     }
 
+    pub fn client(&self) -> Arc<Client> {
+        self.client.clone()
+    }
+
     #[allow(dead_code)]
     pub async fn create_table(
         &mut self,
@@ -95,7 +99,6 @@ impl TempTableFactory {
         self.cleanup.push(pinned);
         Ok(TempTable { table: Some(table) })
     }
-
 
     #[allow(dead_code)]
     pub async fn delete_tables(&mut self) -> Result<(), Box<dyn std::error::Error>> {
